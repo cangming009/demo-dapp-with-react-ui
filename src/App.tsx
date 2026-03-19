@@ -25,7 +25,7 @@ function App() {
                 {
                   appName: 'GateDEX',
                   name: 'GateDEX',
-                  imageUrl: 'https://img.gatedataimg.com/prd-ordinal-imgs/036f07bb8730716e/gateio-0925.png',
+                  imageUrl: 'https://web3-icon.ldd678.com/gateconnect/DEX.png',
                   aboutUrl: 'https://www.gate.io/',
                   universalLink: 'https://gatedex.onelink.me/mXlc/web3?gate_web3_wallet_universal_type=ton_connect',
                   bridgeUrl: 'https://dapp.gateio.services/tonbridge_api/bridge/v1',
