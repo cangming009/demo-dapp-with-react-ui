@@ -49,6 +49,7 @@ export function TxForm() {
       if (waitForTx && wallet && wallet.account && transaction) {
         console.log('wallet', wallet);
         console.log('transaction', transaction);
+        alert('wallet json: ' + JSON.stringify(wallet));
         setWaitingTx(true);
         const network = wallet.account.chain === CHAIN.TESTNET ? 'testnet' : 'mainnet';
         const txBoc = transaction.boc;
