@@ -23,8 +23,8 @@ function App() {
             {
               includeWallets: [
                 {
-                  appName: 'GateDexWallet',
-                  name: 'GateDexWallet',
+                  appName: 'GateDEX',
+                  name: 'GateDEX',
                   imageUrl: 'https://img.gatedataimg.com/prd-ordinal-imgs/036f07bb8730716e/gateio-0925.png',
                   aboutUrl: 'https://www.gate.io/',
                   universalLink: 'https://gatedex.onelink.me/mXlc/web3?gate_web3_wallet_universal_type=ton_connect',

@@ -47,6 +47,8 @@ export function TxForm() {
     try {
       const transaction = await tonConnectUi.sendTransaction(tx);
       if (waitForTx && wallet && wallet.account && transaction) {
+        console.log('wallet', wallet);
+        console.log('transaction', transaction);
         setWaitingTx(true);
         const network = wallet.account.chain === CHAIN.TESTNET ? 'testnet' : 'mainnet';
         const txBoc = transaction.boc;
