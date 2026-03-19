@@ -30,6 +30,7 @@ export function TxForm() {
   const [tx, setTx] = useState(defaultTx);
   const [waitForTx, setWaitForTx] = useState(false);
   const [txResult, setTxResult] = useState<object | null>(null);
+  const [sendInfo, setSendInfo] = useState<{ wallet: object; transaction: object } | null>(null);
   const [loading, setLoading] = useState(false);
   const [waitingTx, setWaitingTx] = useState(false);
 
@@ -42,14 +43,16 @@ export function TxForm() {
 
   const handleSendTx = async () => {
     setTxResult(null);
+    setSendInfo(null);
     setLoading(true);
     setWaitingTx(false);
     try {
       const transaction = await tonConnectUi.sendTransaction(tx);
+      setSendInfo({
+        wallet: wallet ? JSON.parse(JSON.stringify(wallet)) : {},
+        transaction: transaction ?? {},
+      });
       if (waitForTx && wallet && wallet.account && transaction) {
-        console.log('wallet', wallet);
-        console.log('transaction', transaction);
-        alert('wallet json: ' + JSON.stringify(wallet));
         setWaitingTx(true);
         const network = wallet.account.chain === CHAIN.TESTNET ? 'testnet' : 'mainnet';
         const txBoc = transaction.boc;
@@ -99,6 +102,19 @@ export function TxForm() {
         <button onClick={() => tonConnectUi.openModal()}>
           Connect wallet to send the transaction
         </button>
+      )}
+
+      {sendInfo && (
+        <>
+          <div className="find-transaction-demo__json-label" style={{ marginTop: 16 }}>Wallet Info</div>
+          <div className="find-transaction-demo__json-view">
+            <ReactJson src={sendInfo.wallet} name="wallet" theme="ocean" collapsed={1} />
+          </div>
+          <div className="find-transaction-demo__json-label" style={{ marginTop: 8 }}>Send Transaction Result</div>
+          <div className="find-transaction-demo__json-view">
+            <ReactJson src={sendInfo.transaction} name="transaction" theme="ocean" collapsed={1} />
+          </div>
+        </>
       )}
 
       {txResult && (
