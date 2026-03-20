@@ -38,7 +38,24 @@ function App() {
                       extraCurrencySupported: false
                     }
                   ]
-                }
+                },
+                {
+                  appName: 'GateWallet',
+                  name: 'GateWallet',
+                  imageUrl: 'https://web3-icon.ldd678.com/gateconnect/GATEAPP.png',
+                  aboutUrl: 'https://www.gate.io/',
+                  universalLink: 'https://gate.onelink.me/Hls0/web3?gate_web3_wallet_universal_type=ton_connect',
+                  bridgeUrl: 'https://dapp.gateio.services/tonbridge_api/bridge/v1',
+                  jsBridgeKey: 'gatetonwallet',
+                  platforms: ['ios', 'android'],
+                  features: [
+                    {
+                      name: 'SendTransaction',
+                      maxMessages: 4,
+                      extraCurrencySupported: false
+                    }
+                  ]
+                },
               ]
             }
           }
